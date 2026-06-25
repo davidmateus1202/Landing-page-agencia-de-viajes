@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────
+   Paleta azul (colores sólidos, sin degradados)
+   Tailwind v4: tokens en @theme → utilidades bg-brand-600, text-brand-900, etc.
+─────────────────────────────────────────────── */
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Dancing Script", cursive;
+
+  --color-brand-50: #e8f1fb;
+  --color-brand-100: #d3e4f8;
+  --color-brand-200: #a9c9f0;
+  --color-brand-400: #2f84e0;
+  --color-brand-500: #1e6fd8;
+  --color-brand-600: #1763c9;
+  --color-brand-700: #14529e;
+  --color-brand-900: #0b2a4a;
+
+  --color-ink: #1c2733;
+  --color-muted: #5b6b7d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #ffffff;
+}
+
+/* Tipografía script del hero ("Places with Us") */
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* ───────────────────────────────────────────────
+   Glassmorphism — paneles semitransparentes con blur
+─────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 10px 30px rgba(11, 42, 74, 0.08);
+}
+
+.glass-dark {
+  background: rgba(11, 42, 74, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Oculta el contenido antes de que GSAP lo anime (evita parpadeo) */
+.pre-anim {
+  visibility: hidden;
+}
+
+/* Respeta usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .pre-anim {
+    visibility: visible !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
